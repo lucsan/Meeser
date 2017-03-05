@@ -1,0 +1,31 @@
+MeWebi micro php web server
+
+The purpose of this project is a web server so light it doesn't really exist as it utilises the web server capabilities already available in the PHP stack.
+
+As such it is really a wrapper of this functionality and servers perhaps more as an example of how you might use the PHP web server in your projects.
+
+The heart of the software is the following line
+
+php -S localhost:$port routes.php
+
+Where php invokes the php command line and -S creates the web server.
+
+$port is a port number (typically 8000) and routes.php forces the server to load routes.php as the default page.
+
+Details of php -S are at http://php.net/manual/en/features.commandline.webserver.php
+
+The ps1 files Meeser.ps1 and Mebrow.ps1 are powershell scripts (which could easily be bash scripts).
+
+Meeser.ps1 fires up the web server either in the context or backgrounded (it opens a new context window).
+
+Mebrow.ps1 is a command line browser, which is to say it is a wrapper for a curl call (Invoke-WebRequest in powershell speak).
+
+It takes an argument -h to either show or not show the automated html, and -c for context (ie: content), which is part of the Invoke-WebRequest object)
+
+Htmlizer is code which automatically wraps html around data, it is not required, indeed the whole thing can be run manually from the command line (bash or powershell with the following)
+
+Start a server
+php -S localhost:8000
+
+Call the server
+curl localhost:8000
